@@ -67,3 +67,11 @@ li.checked {
   background-color: #d4edda;
   text-decoration: line-through;
 }
+.user-select {
+  margin-bottom: 20px;
+}
+
+.user-select label {
+  font-weight: bold;
+  margin-right: 10px;
+}
