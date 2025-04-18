@@ -8,6 +8,25 @@
 </head>
 <body>
   <div class="container">
+  <h1>🏆 Family Habit Tracker</h1>
+
+  <!-- User Selector -->
+  <div class="user-select">
+    <label for="userSelect">Select User:</label>
+    <select id="userSelect" onchange="switchUser()">
+      <option value="Dad">Dad</option>
+      <option value="Kid">Kid</option>
+      <option value="Mom">Mom</option>
+    </select>
+  </div>
+
+  <div class="add-habit">
+    <input type="text" id="habitInput" placeholder="Enter a habit..." />
+    <button onclick="addHabit()">Add</button>
+  </div>
+
+  <ul id="habitList"></ul>
+</div>
     <h1>🏆 Family Habit Tracker</h1>
 
     <div class="add-habit">
