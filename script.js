@@ -16,6 +16,16 @@ function switchUser() {
   habits = loadHabits(currentUser);
   updateAvatar();
   renderHabits();
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("userSelect").value = currentUser;
+  renderHabits();
+});
+updateAvatar();
+}
+function updateAvatar() {
+  const avatarImage = document.getElementById("avatarImage");
+  let fileName = currentUser.toLowerCase(); // Dad -> dad.png
+  avatarImage.src = `avatars/${fileName}.png`;
 }
 
 function renderHabits() {
