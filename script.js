@@ -1,7 +1,20 @@
-let habits = JSON.parse(localStorage.getItem("habits")) || [];
+let currentUser = localStorage.getItem("currentUser") || "Dad";
+let habits = loadHabits(currentUser);
 
 function saveHabits() {
-  localStorage.setItem("habits", JSON.stringify(habits));
+  localStorage.setItem(`habits_${currentUser}`, JSON.stringify(habits));
+}
+
+function loadHabits(user) {
+  return JSON.parse(localStorage.getItem(`habits_${user}`)) || [];
+}
+
+function switchUser() {
+  const select = document.getElementById("userSelect");
+  currentUser = select.value;
+  localStorage.setItem("currentUser", currentUser);
+  habits = loadHabits(currentUser);
+  renderHabits();
 }
 
 function renderHabits() {
@@ -46,4 +59,8 @@ function deleteHabit(index) {
   renderHabits();
 }
 
-renderHabits();
+// Set dropdown to correct user on load
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("userSelect").value = currentUser;
+  renderHabits();
+});
