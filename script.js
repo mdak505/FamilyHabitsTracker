@@ -14,6 +14,7 @@ function switchUser() {
   currentUser = select.value;
   localStorage.setItem("currentUser", currentUser);
   habits = loadHabits(currentUser);
+  updateAvatar();
   renderHabits();
 }
 
